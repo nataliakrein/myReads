@@ -1,0 +1,27 @@
+.book-card {
+    display: flex;
+    flex-direction: column;
+    width: 10vw;
+    height: 50vh;
+    align-items: center; 
+    justify-content: space-between;
+    margin: 0.5rem;
+}
+
+.book-card_img img {
+    width: 128px;
+    height: 193px;
+}
+
+.book-card_title {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--title);
+}
+
+.book-card_authors {
+    font-size: 0.7rem;
+    font-weight: 400;
+    color: var(--tertiary-color)
+}
+

@@ -1,0 +1,21 @@
+.shelf-changer {
+    margin-top: 10px;
+}
+
+.shelf-changer_button {
+    appearance: none;
+    outline: 0;
+    border: 0;
+    box-shadow: none;
+    
+    width: 128px;
+    height: 30px;
+    background-color: var(--tertiary-color);
+    padding: 0 1rem;
+    color: var(--title);
+    background-image: none;
+    cursor: pointer;
+}
+
+
+
