@@ -43,7 +43,7 @@ export const SearchBooks = ({}) => {
             <div className="search-books_div-list">
                 <div className="search-books_div-row">
                     {books.map((book) => {
-                        return <div className="col" key={book.id}>
+                        return <div className="search-books_div-col" key={book.id}>
                             <BookCard title={book.title}
                                 image={{ src: book.image.src, alt: book.image.alt }}
                                 authors={book.authors}

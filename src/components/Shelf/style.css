@@ -1,7 +1,17 @@
 .shelf_div {
     margin: 1% 5%;
     display: flex;
-    width: 85%;
+    /*width: 85%;*/
     flex-wrap: wrap;
+    /*justify-content: space-between;*/
     justify-content: center;
+    align-items: flex-start;
+}
+
+.shelf_card {
+    display: flex;
+    flex-wrap: wrap;
+    /*justify-content: center;*/
+    margin: 0.5rem 1%;
+    /*flex-grow: 1;*/
 }

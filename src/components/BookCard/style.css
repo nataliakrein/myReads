@@ -1,11 +1,12 @@
 .book-card {
     display: flex;
     flex-direction: column;
-    width: 10vw;
-    height: 50vh;
+    /*width: 10vw;
+    height: 50vh;*/
+    width: 128px;
+    height: 350px;
     align-items: center; 
     justify-content: space-between;
-    margin: 0.5rem;
 }
 
 .book-card_img img {
