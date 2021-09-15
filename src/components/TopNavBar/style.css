@@ -23,30 +23,8 @@
     width: 40%;*/
 }
 
-.topnavbar_items {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    /*justify-content: space-between;*/
-    font-weight: 600;
-    width: 100%;
-}
-
-.topnavbar_item {
-    border-bottom: 3px solid transparent;
-    padding: 2% 0%;
-    margin: 0 1rem;
-    
-}
-
-.topnavbar_item:hover {
-    border-bottom: 3px solid var(--tertiary-color);
-}
-  
-.topnavbar_item.active {
-    border-bottom: 3px solid var(--tertiary-color);
-}
-
 @media (min-width:320px) and (max-width: 730px) {
-    
+    .topnavbar_nav {
+        display: none;
+    }
 }
