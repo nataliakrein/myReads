@@ -3,7 +3,6 @@ import { BookCard } from '..'
 import './style.css'
 
 export const Shelf = ({title, books}) => {
-
     return (
             <div className="shelf_div">
                 {books.map((book) => (

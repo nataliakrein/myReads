@@ -1,7 +1,7 @@
 :root {
   --primary-color: #131B23;
   --secondary-color: #084887;
-  --tertiary-color: #909CC2;
+  --tertiary-color: /*#909CC2*//*#ffb703*/ #FFBF1F;
   --white: #F7F5FB;
   --title: #252422;
   --details: #e5e5e5; 
@@ -11,6 +11,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'Quicksand', sans-serif;
 }
 
 ul {

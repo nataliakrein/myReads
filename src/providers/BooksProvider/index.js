@@ -9,7 +9,6 @@ export const BooksProvider = ({ children }) => {
     const [wantToRead, setWantToRead] = useState([]);
     const [read, setRead] = useState([]);
 
-
     useEffect(() => {
 		  API.getMyBooks().then(books => {
             setBooks(books.map((book) => {
@@ -34,7 +33,7 @@ export const BooksProvider = ({ children }) => {
 	  }, [books]);
   
     return(
-        <BooksContext.Provider value={{currentlyReading, wantToRead, read}}>
+        <BooksContext.Provider value={{books, currentlyReading, wantToRead, read}}>
             {children}
         </BooksContext.Provider>
     )

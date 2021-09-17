@@ -33,7 +33,7 @@ export const ShelfChangerButton = ({ name, value = 'none', bookId}) => {
     return (
         <div className="shelf-changer">
         <select className="shelf-changer_button" value={value} onChange={handlerChangeSelect}>
-                <option value="none" >Move to...</option>
+                <option value="none">Move to...</option>
             {
                 newShelves.map((item, key) => {
                     if (selectShelf(item)) {

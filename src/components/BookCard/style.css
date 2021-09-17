@@ -23,6 +23,6 @@
 .book-card_authors {
     font-size: 0.7rem;
     font-weight: 400;
-    color: var(--tertiary-color)
+    color: var(--secondary-color);
 }
 
