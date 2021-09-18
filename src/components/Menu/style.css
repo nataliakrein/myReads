@@ -14,11 +14,11 @@
     
 }
 
-.menu_item:hover {
+/*.menu_item:hover {
     border-bottom: 3px solid var(--tertiary-color);
-}
+}*/
   
-.menu_item.active {
+.menu_item.active, .menu_item--active {
     border-bottom: 3px solid var(--tertiary-color);
 }
 

@@ -1,10 +1,8 @@
 import React from 'react'
 import './style.css'
 import { ShelfChangerButton } from '..'
-import { useBooks } from '../../hooks'
 
 export const BookCard = ({image, title, authors, shelf, id}) => {
-    const shelfValidate = (shelf === ('currentlyReading' || 'wantToRead' || 'read'));
     return (
         <div className="book-card">
             <div className="book-card_data">

@@ -2,15 +2,15 @@ import React, { Component, useEffect, useState} from 'react'
 import * as API from '../../BooksAPI'
 import { BookCard } from '..';
 import './style.css'
-//import { useBooks } from '../../hooks';
+import { useBooks } from '../../hooks';
 import { KeyWords } from '../../KeyWords';
 import Select from 'react-select';
 
 export const SearchBooks = ({}) => {
-    const [value, setValue] = useState('');
+    //const [value, setValue] = useState('');
     const [searchingBooks, setsearchingBooks] = useState([]);
     const [selectedOption, setSelectedOption] = useState({});
-    //const { books } = useBooks()
+    const { books } = useBooks()
 
     //const selectedBooksTitle = books.map(book => (book.title))
     //console.log(selectedBooksTitle)
@@ -48,8 +48,8 @@ export const SearchBooks = ({}) => {
 
     const handleChange = (selectedOption) => {
         setSelectedOption(selectedOption)
-        API.searchBooks(selectedOption.value).then((books) => {
-            setsearchingBooks(books.map(searchingBook => {
+        API.searchBooks(selectedOption.value).then((search) => {
+            setsearchingBooks(search.map(searchingBook => {
                     return {
                         id: searchingBook.id,
                         title: searchingBook.title,
@@ -60,19 +60,29 @@ export const SearchBooks = ({}) => {
                         },
                         shelf: searchingBook.shelf
                     }
-                }))
-                
+                })) 
         })
       };
 
+    //const booksSelectedId = books.map(book => book.id)
+    //const filterBooks = searchingBooks.map(book => booksSelectedId.filter((id) => book.id !== id))
+    //console.log(filterBooks)
 
     return (
         <section className="search-books">
             <div className="search-books_input-div">
+            <label className="search-books_label" for="search">Search other books</label>
             <Select
-                value={selectedOption}
+                value={selectedOption} 
                 onChange={handleChange}
-                options={KeyWords}
+                options={KeyWords} 
+                theme={theme => ({
+                    ...theme,
+                    colors: {
+                      ...theme.colors,
+                      primary: 'var(--primary-color)',
+                    },
+                  })}
             />
                 {/*<label className="search-books_label" for="search">Search other books</label>
                 <input list="search" className="search-books_input" 
