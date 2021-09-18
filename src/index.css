@@ -42,6 +42,11 @@ code {
     monospace;
 }
 
+.loading {
+  margin-top: 20px;
+  margin-left: 20px;
+}
+
 .menu-hamburguer{
   display: none;
 }

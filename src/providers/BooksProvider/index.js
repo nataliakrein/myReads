@@ -9,7 +9,10 @@ export const BooksProvider = ({ children }) => {
     const [wantToRead, setWantToRead] = useState([]);
     const [read, setRead] = useState([]);
 
+    const [isLoading, setIsLoading] = useState(false)
+
     useEffect(() => {
+        setIsLoading(true)
 		  API.getMyBooks().then(books => {
             setBooks(books.map((book) => {
               return ({
@@ -23,6 +26,7 @@ export const BooksProvider = ({ children }) => {
               shelf: book.shelf
             })
             }))
+            setIsLoading(false)
             })
 	  }, []);
 
@@ -31,9 +35,9 @@ export const BooksProvider = ({ children }) => {
             setWantToRead(books.filter((book) => book.shelf === 'wantToRead'));
             setRead(books.filter((book) => book.shelf === 'read'));
 	  }, [books]);
-  
-    return(
-        <BooksContext.Provider value={{books, currentlyReading, wantToRead, read}}>
+
+    return (
+        <BooksContext.Provider value={{isLoading, books, currentlyReading, wantToRead, read}}>
             {children}
         </BooksContext.Provider>
     )

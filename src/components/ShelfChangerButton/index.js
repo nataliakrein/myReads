@@ -1,6 +1,7 @@
 import React from 'react'
 import './style.css'
 import * as API from '../../BooksAPI'
+//import { useBooks } from '../../hooks';
 
 export const ShelfChangerButton = ({ name, value = 'none', bookId}) => {
     const titleBook = JSON.stringify(name)
@@ -29,8 +30,8 @@ export const ShelfChangerButton = ({ name, value = 'none', bookId}) => {
             return "Shelf not found";
     }
     }
-
-    return (
+     
+      return (
         <div className="shelf-changer">
         <select className="shelf-changer_button" value={value} onChange={handlerChangeSelect}>
                 <option value="none">Move to...</option>

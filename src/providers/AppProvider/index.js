@@ -2,11 +2,12 @@ import React from 'react'
 import { Switch, Route } from 'react-router-dom'
 import { Shelf, SearchBooks } from '../../components'
 import { useBooks } from '../../hooks';
+import ReactLoading from 'react-loading';
 
 export const AppProvider = () => {
-    const { currentlyReading, wantToRead, read } = useBooks()
+    const { isLoading, currentlyReading, wantToRead, read } = useBooks()
 
-    return (
+    return isLoading ? (<ReactLoading type={'spin'} color={'var(--primary-color)'} height={50} width={50} className='loading'/>) : (
     <Switch>
         <Route exact path='/'>
             <Shelf title="Tô lendo" books={currentlyReading} />

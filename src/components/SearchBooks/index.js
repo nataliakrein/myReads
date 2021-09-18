@@ -2,7 +2,6 @@ import React, { Component, useEffect, useState} from 'react'
 import * as API from '../../BooksAPI'
 import { BookCard } from '..';
 import './style.css'
-import { useBooks } from '../../hooks';
 import { KeyWords } from '../../KeyWords';
 import Select from 'react-select';
 
@@ -10,7 +9,8 @@ export const SearchBooks = ({}) => {
     //const [value, setValue] = useState('');
     const [searchingBooks, setsearchingBooks] = useState([]);
     const [selectedOption, setSelectedOption] = useState({});
-    const { books } = useBooks()
+    //const [filterBooks, setFilterBooks] = useState([])
+    //const [filter, setFilter] = useState([])
 
     //const selectedBooksTitle = books.map(book => (book.title))
     //console.log(selectedBooksTitle)
@@ -45,7 +45,7 @@ export const SearchBooks = ({}) => {
             }
         })
     };*/
-
+    //const booksSelected = books.map(book => book)
     const handleChange = (selectedOption) => {
         setSelectedOption(selectedOption)
         API.searchBooks(selectedOption.value).then((search) => {
@@ -63,10 +63,23 @@ export const SearchBooks = ({}) => {
                 })) 
         })
       };
-
+      
     //const booksSelectedId = books.map(book => book.id)
     //const filterBooks = searchingBooks.map(book => booksSelectedId.filter((id) => book.id !== id))
     //console.log(filterBooks)
+    /* reduce setFilterBooks(searchingBooks.map(book => booksSelected.filter((selected) => book !== selected))) //retorna os já selecionados
+        console.log(filterBooks)
+        
+        setFilterBooks(searchingBooks.map(book => booksSelected.filter((selected) => book !== selected))) //retorna os já selecionados
+            setFilter(searchingBooks.map((book) => {
+                filterBooks.map(filter => {
+                    if (book != filter){
+                        console.log(book)
+                        return book;
+                    }
+                })
+            }))
+        */
 
     return (
         <section className="search-books">

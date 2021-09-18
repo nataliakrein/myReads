@@ -6,4 +6,5 @@ export const BooksContext = createContext({
     currentlyReading: [],
     wantToRead: [],
     read: [],
+    loading: [],
 })
