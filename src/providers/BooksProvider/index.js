@@ -8,8 +8,7 @@ export const BooksProvider = ({ children }) => {
     const [currentlyReading, setCurrentlyReading] = useState([]);
     const [wantToRead, setWantToRead] = useState([]);
     const [read, setRead] = useState([]);
-
-    const [isLoading, setIsLoading] = useState(false)
+    const [isLoading, setIsLoading] = useState(false); 
 
     useEffect(() => {
         setIsLoading(true)

@@ -1,7 +1,6 @@
 import React from 'react'
 import './style.css'
 import * as API from '../../BooksAPI'
-//import { useBooks } from '../../hooks';
 
 export const ShelfChangerButton = ({ name, value = 'none', bookId}) => {
     const titleBook = JSON.stringify(name)

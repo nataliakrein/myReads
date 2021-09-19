@@ -1,8 +1,9 @@
-import React, { useState } from 'react'
+import React from 'react'
 import './style.css'
 import { ShelfChangerButton } from '..'
 
 export const BookCard = ({image, title, authors, shelf, id}) => {
+    
     return (
         <div className="book-card">
             <div className="book-card_data">

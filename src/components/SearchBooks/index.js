@@ -1,53 +1,23 @@
-import React, { Component, useEffect, useState} from 'react'
+import React, { useState} from 'react'
 import * as API from '../../BooksAPI'
 import { BookCard } from '..';
 import './style.css'
 import { KeyWords } from '../../KeyWords';
 import Select from 'react-select';
+import ReactLoading from 'react-loading';
+//import { useBooks } from '../../hooks';
 
-export const SearchBooks = ({}) => {
-    //const [value, setValue] = useState('');
+
+export const SearchBooks = () => {
     const [searchingBooks, setsearchingBooks] = useState([]);
     const [selectedOption, setSelectedOption] = useState({});
-    //const [filterBooks, setFilterBooks] = useState([])
-    //const [filter, setFilter] = useState([])
-
-    //const selectedBooksTitle = books.map(book => (book.title))
-    //console.log(selectedBooksTitle)
+    const [isLoading, setIsLoading] = useState(false)
     
-    /*const selectedBooks = [currentlyReading, wantToRead, read].reduce(
-        function(acumulator, currentValue) {
-          return acumulator.concat(currentValue)
-        },
-        []
-    )*/
-        //remover os books do useBooks
-    //const selectedBooksTitle = selectedBooks.map(selectedBook => (selectedBook.title))
-
-    /*const handleChange = (e) => {
-        setValue(e.target.value);
-        API.searchBooks(e.target.value).then(e => {
-            if (Array.isArray(e)) {
-                const searchingBooks = e.map(searchingBook => {
-                    return {
-                        id: searchingBook.id,
-                        title: searchingBook.title,
-                        authors: searchingBook.authors || [],
-                        image: {
-                            src: searchingBook.imageLinks && searchingBook.imageLinks.thumbnail,
-                            alt: searchingBook.subtitle
-                        },
-                        shelf: searchingBook.shelf
-                    }
-                })
-                setsearchingBooks(searchingBooks);
-                
-            }
-        })
-    };*/
-    //const booksSelected = books.map(book => book)
+    //const { books } = useBooks()
+    
     const handleChange = (selectedOption) => {
         setSelectedOption(selectedOption)
+        setIsLoading(true)
         API.searchBooks(selectedOption.value).then((search) => {
             setsearchingBooks(search.map(searchingBook => {
                     return {
@@ -61,30 +31,14 @@ export const SearchBooks = ({}) => {
                         shelf: searchingBook.shelf
                     }
                 })) 
+                setIsLoading(false)
         })
       };
-      
-    //const booksSelectedId = books.map(book => book.id)
-    //const filterBooks = searchingBooks.map(book => booksSelectedId.filter((id) => book.id !== id))
-    //console.log(filterBooks)
-    /* reduce setFilterBooks(searchingBooks.map(book => booksSelected.filter((selected) => book !== selected))) //retorna os já selecionados
-        console.log(filterBooks)
-        
-        setFilterBooks(searchingBooks.map(book => booksSelected.filter((selected) => book !== selected))) //retorna os já selecionados
-            setFilter(searchingBooks.map((book) => {
-                filterBooks.map(filter => {
-                    if (book != filter){
-                        console.log(book)
-                        return book;
-                    }
-                })
-            }))
-        */
 
     return (
         <section className="search-books">
             <div className="search-books_input-div">
-            <label className="search-books_label" for="search">Search other books</label>
+            <label className="search-books_label">Search other books</label>
             <Select
                 value={selectedOption} 
                 onChange={handleChange}
@@ -97,20 +51,9 @@ export const SearchBooks = ({}) => {
                     },
                   })}
             />
-                {/*<label className="search-books_label" for="search">Search other books</label>
-                <input list="search" className="search-books_input" 
-                    name="search" 
-                    type="search" 
-                    value={value} 
-                    onChange={handleChange}
-                    />
-                    <datalist id="search">
-                        {KeyWords.map((keyword, key) => <option key={key} value={keyword}>{keyword}</option>)}
-                    </datalist>
-                <span class="search-books_input-focus"></span>*/}
             </div>
             <div className="search-books_div-list">
-                <div className="search-books_div-row">
+                {isLoading ? (<ReactLoading type={'spin'} color={'var(--primary-color)'} height={50} width={50} className='search-books_loading'/>) : (<div className="search-books_div-row">
                 {searchingBooks.map((searchingBook) => {
                         return <div className="search-books_div-col" key={searchingBook.id}>
                             <BookCard title={searchingBook.title}
@@ -121,7 +64,7 @@ export const SearchBooks = ({}) => {
                             />
                         </div>
                     })}
-                </div>
+                </div>)}
             </div>
         </section>
     )

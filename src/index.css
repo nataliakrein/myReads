@@ -43,8 +43,9 @@ code {
 }
 
 .loading {
-  margin-top: 20px;
-  margin-left: 20px;
+  /*margin-top: 20px;
+  margin-left: 20px;*/
+  margin: calc(50vh - 10vh) auto;
 }
 
 .menu-hamburguer{
