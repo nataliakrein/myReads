@@ -1,25 +1,25 @@
-import React, { useState} from 'react'
+import React, { useEffect, useState} from 'react'
 import * as API from '../../BooksAPI'
 import { BookCard } from '..';
 import './style.css'
 import { KeyWords } from '../../KeyWords';
 import Select from 'react-select';
 import ReactLoading from 'react-loading';
-//import { useBooks } from '../../hooks';
+import { useBooks } from '../../hooks';
 
 
 export const SearchBooks = () => {
-    const [searchingBooks, setsearchingBooks] = useState([]);
+    //const [searchingBooks, setsearchingBooks] = useState([]);
     const [selectedOption, setSelectedOption] = useState({});
     const [isLoading, setIsLoading] = useState(false)
     
-    //const { books } = useBooks()
+    const { books, setBooks, searchingBooks, setsearchingBooks } = useBooks()
     
-    const handleChange = (selectedOption) => {
+   const handleChange = (selectedOption) => {
         setSelectedOption(selectedOption)
         setIsLoading(true)
         API.searchBooks(selectedOption.value).then((search) => {
-            setsearchingBooks(search.map(searchingBook => {
+            const searchingBooks = (search.map(searchingBook => {
                     return {
                         id: searchingBook.id,
                         title: searchingBook.title,
@@ -32,6 +32,7 @@ export const SearchBooks = () => {
                     }
                 })) 
                 setIsLoading(false)
+                setsearchingBooks(searchingBooks);
         })
       };
 

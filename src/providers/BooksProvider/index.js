@@ -8,7 +8,8 @@ export const BooksProvider = ({ children }) => {
     const [currentlyReading, setCurrentlyReading] = useState([]);
     const [wantToRead, setWantToRead] = useState([]);
     const [read, setRead] = useState([]);
-    const [isLoading, setIsLoading] = useState(false); 
+    const [isLoading, setIsLoading] = useState(false);
+    const [searchingBooks, setsearchingBooks] = useState([]); 
 
     useEffect(() => {
         setIsLoading(true)
@@ -36,7 +37,7 @@ export const BooksProvider = ({ children }) => {
 	  }, [books]);
 
     return (
-        <BooksContext.Provider value={{isLoading, books, currentlyReading, wantToRead, read}}>
+        <BooksContext.Provider value={{isLoading, searchingBooks, setsearchingBooks, books, currentlyReading, wantToRead, read}}>
             {children}
         </BooksContext.Provider>
     )

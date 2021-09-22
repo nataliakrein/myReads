@@ -1,12 +1,23 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import './style.css'
 import * as API from '../../BooksAPI'
 
+//import { useLocation } from 'react-router-dom'
+import { useBooks } from '../../hooks'
+
 export const ShelfChangerButton = ({ name, value = 'none', bookId}) => {
+    //const [button, setButton] = useState(false)
+    /*const { button, currentlyReading, wantToRead, read } = useBooks();
+    let location = useLocation();
+    console.log(location.pathname);
+    location.pathname === "/searchbooks"*/
+    const { books, setBooks } = useBooks()
     const titleBook = JSON.stringify(name)
     const handlerChangeSelect = (e) => {
         API.updateBook({id:bookId}, e.target.value).then(() => {
-            window.location.reload();
+            window.location.reload(); 
+            //se der true, retorna o botão, se não retorna false
+            //setButton(true)
         })
         alert('The book ' + titleBook +' has been moved')
     };
@@ -29,7 +40,7 @@ export const ShelfChangerButton = ({ name, value = 'none', bookId}) => {
             return "Shelf not found";
     }
     }
-     
+
       return (
         <div className="shelf-changer">
         <select className="shelf-changer_button" value={value} onChange={handlerChangeSelect}>
@@ -43,5 +54,5 @@ export const ShelfChangerButton = ({ name, value = 'none', bookId}) => {
             }
         </select>
     </div>
-    )
+    ) 
 }
