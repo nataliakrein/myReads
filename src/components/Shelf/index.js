@@ -7,7 +7,7 @@ export const Shelf = ({title, books}) => {
             <div className="shelf_div">
                 {books.map((book) => (
                     <div className="shelf_card" key={book.id}>
-                        <BookCard title={book.title}
+                        <BookCard book={book} title={book.title}
                             image={{ src: book.image.src, alt: book.image.alt }}
                             authors={book.authors}
                             shelf={book.shelf}

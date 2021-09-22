@@ -5,22 +5,24 @@ import * as API from '../../BooksAPI'
 //import { useLocation } from 'react-router-dom'
 import { useBooks } from '../../hooks'
 
-export const ShelfChangerButton = ({ name, value = 'none', bookId}) => {
+export const ShelfChangerButton = ({ book, name, value = 'none', bookId}) => {
     //const [button, setButton] = useState(false)
-    /*const { button, currentlyReading, wantToRead, read } = useBooks();
-    let location = useLocation();
-    console.log(location.pathname);
-    location.pathname === "/searchbooks"*/
-    const { books, setBooks } = useBooks()
+    const { books, setBooks, updateList} = useBooks()
     const titleBook = JSON.stringify(name)
-    const handlerChangeSelect = (e) => {
+    /*const handlerChangeSelect = (e) => {
         API.updateBook({id:bookId}, e.target.value).then(() => {
             window.location.reload(); 
             //se der true, retorna o botão, se não retorna false
             //setButton(true)
         })
         alert('The book ' + titleBook +' has been moved')
-    };
+    };*/
+
+    const handlerChangeSelect = (e) => {
+        e.preventDefault()
+        updateList(book,  e.target.value)
+        alert('The book ' + titleBook +' has been moved')
+    }
 
     const shelves = ['currentlyReading', 'wantToRead', 'read', 'none'];
 

@@ -9,11 +9,11 @@ import { useBooks } from '../../hooks';
 
 
 export const SearchBooks = () => {
-    //const [searchingBooks, setsearchingBooks] = useState([]);
+    const [searchingBooks, setsearchingBooks] = useState([]);
     const [selectedOption, setSelectedOption] = useState({});
     const [isLoading, setIsLoading] = useState(false)
     
-    const { books, setBooks, searchingBooks, setsearchingBooks } = useBooks()
+    //const { books, setBooks, searchingBooks, setsearchingBooks } = useBooks()
     
    const handleChange = (selectedOption) => {
         setSelectedOption(selectedOption)
@@ -57,7 +57,7 @@ export const SearchBooks = () => {
                 {isLoading ? (<ReactLoading type={'spin'} color={'var(--primary-color)'} height={50} width={50} className='search-books_loading'/>) : (<div className="search-books_div-row">
                 {searchingBooks.map((searchingBook) => {
                         return <div className="search-books_div-col" key={searchingBook.id}>
-                            <BookCard title={searchingBook.title}
+                            <BookCard book={searchingBook} title={searchingBook.title}
                                 image={{ src: searchingBook.image.src, alt: searchingBook.image.alt }}
                                 authors={searchingBook.authors}
                                 shelf={searchingBook.shelf}
