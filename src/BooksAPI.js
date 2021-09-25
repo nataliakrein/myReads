@@ -26,7 +26,7 @@ export function getMyBooks() {
   )
 }
 
-export function updateBook(book, shelf) {
+export function updateBook(book, shelf, reject) {
   return (
     fetch(`${api}/books/${book.id}`, {
       method: 'PUT',
@@ -36,10 +36,11 @@ export function updateBook(book, shelf) {
       },
       body: JSON.stringify({ shelf })
     }).then(res => res.json())
+      .catch(reject)
   )
 }
 
-export function searchBooks(query) {
+export function searchBooks(query, reject) {
   return (
     fetch(`${api}/search`, {
       method: 'POST',
@@ -50,5 +51,6 @@ export function searchBooks(query) {
       body: JSON.stringify({ query })
     }).then(res => res.json())
       .then(data => data.books)
+      .catch(reject)
   )
 }

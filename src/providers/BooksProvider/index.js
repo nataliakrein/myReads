@@ -12,21 +12,21 @@ export const BooksProvider = ({ children }) => {
 
     useEffect(() => {
         setIsLoading(true)
-		  API.getMyBooks().then(books => {
+        API.getMyBooks().then(books => {
             setBooks(books.map((book) => {
-              return ({
-              id: book.id,
-              title: book.title,
-              authors: book.authors || [],
-              image: {
-                  src: book.imageLinks && book.imageLinks.thumbnail,
-                  alt: book.subtitle,
-              },
-              shelf: book.shelf,
-            })
+                return ({
+                  id: book.id,
+                  title: book.title,
+                  authors: book.authors || [],
+                  image: {
+                      src: book.imageLinks && book.imageLinks.thumbnail,
+                      alt: book.subtitle,
+                  },
+                  shelf: book.shelf,
+                })
             }))
-            setIsLoading(false)
-            })
+          setIsLoading(false)
+        })
 	  }, []);
 
     useEffect(() => {
@@ -39,7 +39,10 @@ export const BooksProvider = ({ children }) => {
         API.updateBook(book,newShelf).then(() => {
           book.shelf = newShelf
           setBooks(books.filter(b => b.id !== book.id).concat([ book ]))
-        })
+        }).catch(reject => {
+          console.log(reject);
+          alert('Error! Unable to update!');
+      });
       }
 
     return (

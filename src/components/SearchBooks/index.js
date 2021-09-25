@@ -32,7 +32,10 @@ export const SearchBooks = () => {
                 })) 
                 setIsLoading(false)
                 setSearchingBooks(searchingBooks);
-        })
+        }).catch(reject => {
+            console.log(reject);
+            alert('Error! Unable to complete search!');
+        });
       };
 
     return (
