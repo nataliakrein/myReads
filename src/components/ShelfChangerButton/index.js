@@ -3,7 +3,6 @@ import './style.css'
 import { useBooks } from '../../hooks'
 
 export const ShelfChangerButton = ({ book, name, value }) => {
-	console.log(book)
     const { updateList } = useBooks()
     const titleBook = JSON.stringify(name)
     const [optionsShelf] = useState([
