@@ -28,8 +28,6 @@ yarn/npm install
 yarn/npm start
 ```
 
-## ⚖ Licença
-Esse projeto está sob licença MIT. Veja o arquivo <a href="https://github.com/nataliakrein/compasso-myReads/blob/main/LICENSE">LICENÇA</a> para mais detalhes.
 ## 
 ##### Coded with ❤ by <a href="https://github.com/nataliakrein/">Natália Krein</a>
 
