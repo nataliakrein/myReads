@@ -32,7 +32,6 @@ export const SearchBooks = () => {
                 })) 
                 setIsLoading(false)
                 setsearchingBooks(searchingBooks);
-                console.log(searchingBooks)
         })
       };
 
