@@ -1,8 +1,11 @@
 import React from 'react'
 import './style.css'
-import { ShelfChangerButton } from '..'
+import { SavedButton, ShelfChangerButton } from '..'
+import { useLocation } from 'react-router-dom'
+
 
 export const BookCard = ({ book, image, title, authors, shelf, id}) => {
+    const location = useLocation();
     return (
         <div className="book-card">
             <div className="book-card_data">
@@ -19,7 +22,12 @@ export const BookCard = ({ book, image, title, authors, shelf, id}) => {
                 </div>
             </div>
             <div className="book-card_button">
-               <ShelfChangerButton book={book} name={title} value={shelf}/>
+               {   
+               (location.pathname === '/searchbooks' && shelf !== 'none') ? 
+               (<SavedButton/>) 
+               : 
+               (<ShelfChangerButton book={book} name={title} value={shelf}/>)
+               }
             </div>
         </div>
     )

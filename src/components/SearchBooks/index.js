@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import * as API from '../../BooksAPI'
 import { BookCard } from '..';
 import './style.css'
@@ -9,7 +9,7 @@ import { useBooks } from '../../hooks';
 
 
 export const SearchBooks = () => {
-    const [searchingBooks, setsearchingBooks] = useState([]);
+    const [searchingBooks, setSearchingBooks] = useState([]);
     const [selectedOption, setSelectedOption] = useState({});
     const [isLoading, setIsLoading] = useState(false)
     const {books} = useBooks()
@@ -31,7 +31,7 @@ export const SearchBooks = () => {
                     }
                 })) 
                 setIsLoading(false)
-                setsearchingBooks(searchingBooks);
+                setSearchingBooks(searchingBooks);
         })
       };
 

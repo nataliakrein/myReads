@@ -1,0 +1,17 @@
+.saved-div {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 0 1rem;
+    border-radius: 2px;
+    width: 128px;
+    height: 30px;
+    background-color: var(--details);
+    background-image: none;
+}
+
+.saved-text {
+    font-weight: bold;
+    color: var(--primary-color);
+    font-size: 0.82rem;
+}

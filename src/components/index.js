@@ -6,3 +6,4 @@ export * from './SearchBooks';
 export * from './Menu';
 export * from './MenuBurguer';
 export * from './BurguerIcon';
+export * from './SavedButton';
