@@ -1,58 +1,48 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState} from 'react'
 import './style.css'
-import * as API from '../../BooksAPI'
-
-//import { useLocation } from 'react-router-dom'
 import { useBooks } from '../../hooks'
 
-export const ShelfChangerButton = ({ book, name, value = 'none', bookId}) => {
-    //const [button, setButton] = useState(false)
-    const { books, setBooks, updateList} = useBooks()
+export const ShelfChangerButton = ({ book, name, value }) => {
+	console.log(book)
+    const { updateList } = useBooks()
     const titleBook = JSON.stringify(name)
-    /*const handlerChangeSelect = (e) => {
-        API.updateBook({id:bookId}, e.target.value).then(() => {
-            window.location.reload(); 
-            //se der true, retorna o botão, se não retorna false
-            //setButton(true)
-        })
-        alert('The book ' + titleBook +' has been moved')
-    };*/
-
+    const [optionsShelf] = useState([
+		{
+			nameShelf: "Move to...",
+			valueShelf: null,
+		},
+		{
+			nameShelf: "Currently Reading",
+			valueShelf: "currentlyReading",
+		},
+		{
+			nameShelf: "Want to Read",
+			valueShelf: "wantToRead",
+		},
+		{
+			nameShelf: "Read",
+			valueShelf: "read",
+		},
+		{
+			nameShelf: "Remove from Shelf",
+			valueShelf: "none"
+		},
+	]);
+    
     const handlerChangeSelect = (e) => {
         e.preventDefault()
         updateList(book,  e.target.value)
         alert('The book ' + titleBook +' has been moved')
     }
 
-    const shelves = ['currentlyReading', 'wantToRead', 'read', 'none'];
-
-    const newShelves = shelves.filter((shelf) => shelf !== value);
-
-    const selectShelf = (newShelves) => {
-        switch (newShelves) {
-        case "currentlyReading":
-            return 'Currently Reading';
-        case "wantToRead":
-            return 'Want to Read';
-        case "read":
-            return 'Read';
-        case "none":
-            return 'Remove from shelf';
-        default:
-            return "Shelf not found";
-    }
-    }
-
       return (
         <div className="shelf-changer">
         <select className="shelf-changer_button" value={value} onChange={handlerChangeSelect}>
-                <option value="none">Move to...</option>
-            {
-                newShelves.map((item, key) => {
-                    if (selectShelf(item)) {
-                        return <option value={item} key={key}>{selectShelf(item)}</option>
-                    }
-                })
+            {optionsShelf.map((option, key) => {
+                if(option.valueShelf !== book.shelf){
+                    return <option value={option.valueShelf} key={key}>{option.nameShelf}</option>
+                }
+            })
             }
         </select>
     </div>

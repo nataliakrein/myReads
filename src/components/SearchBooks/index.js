@@ -1,20 +1,17 @@
-import React, { useEffect, useState} from 'react'
+import React, { useState } from 'react'
 import * as API from '../../BooksAPI'
 import { BookCard } from '..';
 import './style.css'
 import { KeyWords } from '../../KeyWords';
 import Select from 'react-select';
 import ReactLoading from 'react-loading';
-import { useBooks } from '../../hooks';
 
 
 export const SearchBooks = () => {
     const [searchingBooks, setsearchingBooks] = useState([]);
     const [selectedOption, setSelectedOption] = useState({});
     const [isLoading, setIsLoading] = useState(false)
-    
-    //const { books, setBooks, searchingBooks, setsearchingBooks } = useBooks()
-    
+
    const handleChange = (selectedOption) => {
         setSelectedOption(selectedOption)
         setIsLoading(true)
@@ -28,14 +25,14 @@ export const SearchBooks = () => {
                             src: searchingBook.imageLinks && searchingBook.imageLinks.thumbnail,
                             alt: searchingBook.subtitle
                         },
-                        shelf: searchingBook.shelf
+                        shelf: 'none', 
                     }
                 })) 
                 setIsLoading(false)
                 setsearchingBooks(searchingBooks);
         })
       };
-
+      
     return (
         <section className="search-books">
             <div className="search-books_input-div">
@@ -54,18 +51,26 @@ export const SearchBooks = () => {
             />
             </div>
             <div className="search-books_div-list">
-                {isLoading ? (<ReactLoading type={'spin'} color={'var(--primary-color)'} height={50} width={50} className='search-books_loading'/>) : (<div className="search-books_div-row">
-                {searchingBooks.map((searchingBook) => {
-                        return <div className="search-books_div-col" key={searchingBook.id}>
-                            <BookCard book={searchingBook} title={searchingBook.title}
-                                image={{ src: searchingBook.image.src, alt: searchingBook.image.alt }}
-                                authors={searchingBook.authors}
-                                shelf={searchingBook.shelf}
-                                id={searchingBook.id}
-                            />
-                        </div>
-                    })}
-                </div>)}
+                {isLoading ? 
+                    (<ReactLoading 
+                        type={'spin'} 
+                        color={'var(--primary-color)'} 
+                        height={50} 
+                        width={50} 
+                        className='search-books_loading'/>) : 
+                    (<div className="search-books_div-row">
+                        {searchingBooks.map((searchingBook) => {
+                                return <div className="search-books_div-col" key={searchingBook.id}>
+                                    <BookCard book={searchingBook} title={searchingBook.title}
+                                        image={{ src: searchingBook.image.src, alt: searchingBook.image.alt }}
+                                        authors={searchingBook.authors}
+                                        shelf={searchingBook.shelf} 
+                                        id={searchingBook.id} 
+                                    />
+                                </div>
+                        })}
+                    </div>)
+                }
             </div>
         </section>
     )

@@ -2,7 +2,7 @@ import React from 'react'
 import './style.css'
 import { ShelfChangerButton } from '..'
 
-export const BookCard = ({book, image, title, authors, shelf, id}) => {
+export const BookCard = ({ book, image, title, authors, shelf, id}) => {
     return (
         <div className="book-card">
             <div className="book-card_data">
@@ -19,7 +19,7 @@ export const BookCard = ({book, image, title, authors, shelf, id}) => {
                 </div>
             </div>
             <div className="book-card_button">
-                <ShelfChangerButton book={book} name={title} value={shelf} bookId={id}/>
+               <ShelfChangerButton book={book} name={title} value={shelf}/>
             </div>
         </div>
     )

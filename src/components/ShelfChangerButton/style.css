@@ -1,7 +1,3 @@
-/*.shelf-changer {
-    margin-top: 10px;
-}*/
-
 .shelf-changer_button {
     appearance: none;
     outline: 0;
@@ -13,7 +9,6 @@
     background-color: var(--tertiary-color);
 
     padding: 0 1rem;
-    /*color: var(--title);*/
     background-image: none;
     cursor: pointer;
 

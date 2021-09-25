@@ -7,9 +7,9 @@ export const TopNavBar = () =>{
   return (
     <header className="topnavbar">
         <h1 className="topnavbar_title">MyReads</h1>
-      <nav className="topnavbar_nav">
-          <Menu/>
-      </nav>
-      </header>
+        <nav className="topnavbar_nav">
+            <Menu/>
+        </nav>
+    </header>
   )
 }

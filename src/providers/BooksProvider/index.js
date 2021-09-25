@@ -9,7 +9,6 @@ export const BooksProvider = ({ children }) => {
     const [wantToRead, setWantToRead] = useState([]);
     const [read, setRead] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
-    //const [searchingBooks, setsearchingBooks] = useState([]); 
 
     useEffect(() => {
         setIsLoading(true)
@@ -21,9 +20,9 @@ export const BooksProvider = ({ children }) => {
               authors: book.authors || [],
               image: {
                   src: book.imageLinks && book.imageLinks.thumbnail,
-                  alt: book.subtitle
+                  alt: book.subtitle,
               },
-              shelf: book.shelf
+              shelf: book.shelf,
             })
             }))
             setIsLoading(false)

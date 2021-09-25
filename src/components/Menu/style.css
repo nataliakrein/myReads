@@ -2,7 +2,6 @@
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    /*justify-content: space-between;*/
     font-weight: 600;
     width: 100%;
 }
@@ -14,11 +13,7 @@
     
 }
 
-/*.menu_item:hover {
-    border-bottom: 3px solid var(--tertiary-color);
-}*/
-  
-.menu_item.active, .menu_item--active {
+.menu_item--active {
     border-bottom: 3px solid var(--tertiary-color);
 }
 
@@ -26,8 +21,6 @@
     .menu_items {
         display: flex;
         flex-direction: column;
-        /*position: relative;
-        top: 0px;*/
         font-size: 1.5rem;
       }
       .menu_item a{
