@@ -12,10 +12,6 @@ Principais conceitos colocados em prática:
   <li>Responsividade</li>
 </ul> 
 
-### 💻 Versão desktop
-
-### 📱 Versão mobile
-
 ## 🛠 Tecnologias
 Para o desenvolvimento deste projeto utilizei as seguintes tecnologias:
 <ul>
