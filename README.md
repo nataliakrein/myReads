@@ -23,7 +23,7 @@ Para o desenvolvimento deste projeto utilizei as seguintes tecnologias:
 ## 💾 Clone
 Para executar localmente você deve:
 ```
-git clone https://github.com/nataliakrein/compasso-myReads project_name
+git clone https://github.com/nataliakrein/myReads project_name
 yarn/npm install
 yarn/npm start
 ```
