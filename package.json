@@ -7,6 +7,7 @@
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^12.8.3",
+    "node-forge": "^0.10.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-loading": "^2.0.3",
@@ -15,6 +16,7 @@
     "react-scripts": "^1.1.5",
     "react-select": "^4.3.1",
     "reactjs-popup": "^2.0.5",
+    "urijs": "^1.19.11",
     "web-vitals": "^1.1.2"
   },
   "scripts": {
