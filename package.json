@@ -7,11 +7,14 @@
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^12.8.3",
+    "ansi-html": "^0.0.8",
+    "ansi-regex": "^5.0.1",
     "async": "^2.6.4",
     "braces": "^1.8.5",
     "glob-parent": "^2.0.0",
     "is-svg": "^2.1.0",
     "merge": "^1.2.1",
+    "minimist": "^1.2.6",
     "node-forge": "^0.10.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
@@ -24,6 +27,7 @@
     "sockjs": "^0.3.19",
     "trim-newlines": "^1.0.0",
     "urijs": "^1.19.11",
+    "url-parse": "^1.5.9",
     "web-vitals": "^1.1.2"
   },
   "scripts": {
